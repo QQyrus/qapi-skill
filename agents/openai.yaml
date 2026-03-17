@@ -1,0 +1,4 @@
+interface:
+  display_name: "QAPI Test Creation"
+  short_description: "Generate and save QAPI API tests"
+  default_prompt: "Use $qapi-create-tests to scan this codebase, generate QAPI API tests, and save them to a chosen QAPI workspace."
