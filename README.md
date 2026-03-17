@@ -54,40 +54,34 @@ environment.
 
 ### One-Command Install with `npx skills`
 
-If this repository is published on GitHub, `npx skills` is the simplest install path.
+`npx skills` is the simplest install path.
 
 Interactive install:
 
 ```bash
-npx skills add <owner>/<repo>
-```
-
-Local path also works before the repo is published:
-
-```bash
-npx skills add /absolute/path/to/qapi-skill
+npx skills add QQyrus/qapi-skill
 ```
 
 Full GitHub URL also works:
 
 ```bash
-npx skills add https://github.com/<owner>/<repo>
+npx skills add https://github.com/QQyrus/qapi-skill
 ```
 
 Useful non-interactive examples:
 
 ```bash
 # Install globally for Claude Code
-npx skills add <owner>/<repo> -g -a claude-code -y
+npx skills add QQyrus/qapi-skill -g -a claude-code -y
 
 # Install globally for Codex
-npx skills add <owner>/<repo> -g -a codex -y
+npx skills add QQyrus/qapi-skill -g -a codex -y
 
 # Install globally for Cursor
-npx skills add <owner>/<repo> -g -a cursor -y
+npx skills add QQyrus/qapi-skill -g -a cursor -y
 
 # Install globally for Antigravity
-npx skills add <owner>/<repo> -g -a antigravity -y
+npx skills add QQyrus/qapi-skill -g -a antigravity -y
 ```
 
 Why this works for this repository:
@@ -191,24 +185,3 @@ instruction that points at `SKILL.md`, for example:
 Use the qapi-create-tests skill at /absolute/path/to/qapi-skill/SKILL.md and execute it against this repository.
 ```
 
-## Using the Bundled Client Directly
-
-The skill uses `scripts/qapi_client.py`, but you can also run it yourself:
-
-```bash
-python scripts/qapi_client.py new-suite-id
-python scripts/qapi_client.py get-teams
-python scripts/qapi_client.py get-workspaces --team-id <TEAM_ID>
-python scripts/qapi_client.py create-placeholder --team-id <TEAM_ID> --workspace-id <WORKSPACE_ID> --name "List users" --suite-id <SUITE_ID>
-python scripts/qapi_client.py save-test --team-id <TEAM_ID> --workspace-id <WORKSPACE_ID> --suite-id <SUITE_ID> --test-json '{"id":"...","name":"List users","method":"GET"}'
-```
-
-`create-placeholder` and `save-test` should use the same `suiteId`.
-
-## Validation
-
-Validate the skill after edits:
-
-```bash
-python /Users/vatsals/.codex/skills/.system/skill-creator/scripts/quick_validate.py /absolute/path/to/qapi-skill
-```
